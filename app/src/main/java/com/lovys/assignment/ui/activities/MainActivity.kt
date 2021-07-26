@@ -1,7 +1,8 @@
-package com.lovys.assignment
+package com.lovys.assignment.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.lovys.assignment.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
