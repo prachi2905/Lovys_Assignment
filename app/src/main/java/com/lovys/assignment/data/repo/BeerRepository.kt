@@ -4,7 +4,7 @@ package com.lovys.assignment.data.repo
 import com.lovys.assignment.domain.localdb.Beer
 import com.lovys.assignment.domain.utils.Results
 
-interface PunkRepository {
+interface BeerRepository {
 
     fun getBeersById(id: Int)
             : Results<List<Beer>>

@@ -1,23 +1,24 @@
 package com.lovys.assignment.di
 
 import android.content.Context
-import com.lovys.assignment.data.repo.PunkRepository
-import com.lovys.assignment.data.repo.PunkRepositoryImpl
+import android.content.SharedPreferences
+import com.lovys.assignment.data.repo.BeerRepository
+import com.lovys.assignment.data.repo.BeerRepositoryImpl
 import com.lovys.assignment.data.repo.service.BeerService
 import com.lovys.assignment.domain.userflow.GetBeerList
 import com.lovys.assignment.domain.userflow.GetBeersById
 import com.lovys.assignment.domain.userflow.GetSearchBeer
-import com.lovys.assignment.ui.viewmodels.PunkViewModel
+import com.lovys.assignment.ui.viewmodels.BeerViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
 val repositoriesModule = module {
     single { BeerService() }
-    single<PunkRepository> { PunkRepositoryImpl(get()) }
+    single<BeerRepository> { BeerRepositoryImpl(get()) }
 }
 
 val viewModelModule = module {
-    single { PunkViewModel(get(), get(), get(), get()) }
+    single { BeerViewModel(get(), get(), get(), get()) }
 }
 
 val useCasesModule = module {
@@ -34,7 +35,7 @@ val sharedPreferences = module {
         getSharedPrefs(androidContext(), "com.lovys.assignment.PREFERENCE_FILE")
     }
 
-    single<android.content.SharedPreferences.Editor.Editor> {
+    single<SharedPreferences.Editor> {
         getSharedPrefs(androidContext(), "com.lovys.assignment.PREFERENCE_FILE").edit()
     }
 }

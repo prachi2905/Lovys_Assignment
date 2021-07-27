@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/little_size"
+    android:layout_margin="@dimen/eight_dp"
     android:background="@drawable/card_format"
-    android:padding="@dimen/short_size">
+    android:padding="@dimen/sixteen_dp">
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/beer_image"
-        android:layout_width="@dimen/beer_image_width"
-        android:layout_height="@dimen/beer_image_height"
+        android:layout_width="@dimen/image_width"
+        android:layout_height="@dimen/image_height"
         android:contentDescription="@string/image_beer_content_description"
         android:scaleType="center"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,8 +30,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="start"
-            android:paddingHorizontal="@dimen/short_size"
-            android:paddingBottom="@dimen/little_size"
+            android:paddingHorizontal="@dimen/sixteen_dp"
+            android:paddingBottom="@dimen/eight_dp"
             android:text="@string/text_beer_name"
             android:textColor="@color/white"
             android:textSize="@dimen/font_secondary_title"
@@ -44,8 +44,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="start"
-            android:paddingHorizontal="@dimen/short_size"
-            android:paddingBottom="@dimen/little_size"
+            android:paddingHorizontal="@dimen/sixteen_dp"
+            android:paddingBottom="@dimen/eight_dp"
             android:text="@string/text_beer_tagline"
             android:textColor="@color/white"
             android:textSize="@dimen/font_tertiary_title"
@@ -64,7 +64,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/tiny_size"
+                android:layout_marginTop="@dimen/four_dp"
                 android:layout_gravity="center_horizontal"
                 android:textStyle="bold"
                 android:text="@string/abv_label"/>
@@ -74,7 +74,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/little_size"
+                android:layout_marginTop="@dimen/eight_dp"
                 android:text="@string/text_abv"
                 android:textColor="@color/white"
                 android:textSize="@dimen/font_secondary_title" />

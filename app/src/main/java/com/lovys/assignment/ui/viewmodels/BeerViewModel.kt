@@ -1,5 +1,6 @@
 package com.lovys.assignment.ui.viewmodels
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.lovys.assignment.domain.localdb.Beer
@@ -14,7 +15,6 @@ import com.lovys.assignment.ui.viewmodels.base.BaseViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-
 
 class BeerViewModel(
     private val sharedPreferences: SharedPreferences,
@@ -49,5 +49,34 @@ class BeerViewModel(
         }
     }
 
+    fun onClickToBeerDetails(id: Int, context: Context) = launch {
+        mutableMainStateDetail.value = Data(responseType = Status.LOADING)
+        when (val result = withContext(Dispatchers.IO) { getBeersById(id) }) {
+            is Results.Failure -> {
+                mutableMainStateDetail.value =
+                    Data(responseType = Status.ERROR, error = result.exception)
+            }
+            is Results.Success -> {
+                mutableMainStateDetail.value =
+                    Data(responseType = Status.SUCCESSFUL, data = result.data)
+                result.data?.get(0)
+                    ?.let { sharedPreferences.saveCurrentBeerData(it) }
+            }
+        }
+    }
 
+    //implemeted search functionality
+    fun onSearchClick(beerName: String, page: Int, perPage: Int) = launch {
+        mutableMainStateList.value = Data(responseType = Status.LOADING)
+        when (val result = withContext(Dispatchers.IO) { getSearchBeer(beerName, page, perPage) }) {
+            is Results.Failure -> {
+                mutableMainStateList.value =
+                    Data(responseType = Status.ERROR, error = result.exception)
+            }
+            is Results.Success -> {
+                mutableMainStateList.value =
+                    Data(responseType = Status.SUCCESSFUL, data = result.data)
+            }
+        }
+    }
 }

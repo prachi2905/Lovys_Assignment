@@ -4,9 +4,9 @@ import com.lovys.assignment.data.repo.service.BeerService
 import com.lovys.assignment.domain.localdb.Beer
 import com.lovys.assignment.domain.utils.Results
 
-class PunkRepositoryImpl(
+class BeerRepositoryImpl(
     private val beerService: BeerService
-) : PunkRepository {
+) : BeerRepository {
 
 
     override fun getBeersById(id: Int): Results<List<Beer>> {
