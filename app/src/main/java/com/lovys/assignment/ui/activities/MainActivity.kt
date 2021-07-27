@@ -1,5 +1,6 @@
 package com.lovys.assignment.ui.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -7,22 +8,20 @@ import android.os.Looper
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.lovys.assignment.R
 import com.lovys.assignment.databinding.ActivityMainBinding
 import com.lovys.assignment.domain.localdb.Beer
 import com.lovys.assignment.ui.adapter.PunkAdapter
 import com.lovys.assignment.ui.utils.Data
 import com.lovys.assignment.ui.utils.Status
-import com.lovys.assignment.ui.viewmodels.PunkViewModel
+import com.lovys.assignment.ui.viewmodels.BeerViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private val viewModel by viewModel<PunkViewModel>()
+    private val viewModel by viewModel<BeerViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
@@ -59,6 +58,7 @@ class MainActivity : AppCompatActivity() {
             }
             Status.SUCCESSFUL -> {
                 //navigate to detail screen
+                startActivity(Intent(this, BeerDetailsActivity::class.java))
                 hideLoading()
             }
         }

@@ -39,12 +39,11 @@ class PunkAdapter(private val beerList: List<Beer>) :
     ) {
         //setting the data on the UI field
         val currentItem = beerList[i]
+        holder.binding.beerImage.setImageURI(currentItem.imageURL)
         holder.binding.beerName.text = currentItem.name
         holder.binding.beerTagline.text = currentItem.tagline
         holder.binding.beerAbv.text = currentItem.abv.toString()
 
-        /* holder.itemView.animation =
-                 loadAnimation(holder.itemView.context, R.anim.fade_scale_animation)*/
 
         holder.itemView.setOnClickListener {
             onItemClickListener.onItemClick(beerList[i])

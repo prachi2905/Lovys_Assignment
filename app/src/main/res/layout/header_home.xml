@@ -14,7 +14,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/short_size"
+            android:layout_marginTop="@dimen/sixteen_dp"
             android:text="@string/title_home"
             android:textSize="@dimen/font_primary_title"
             android:textColor="@color/white"

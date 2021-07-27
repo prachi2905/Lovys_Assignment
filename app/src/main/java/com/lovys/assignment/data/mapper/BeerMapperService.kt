@@ -4,7 +4,7 @@ import com.lovys.assignment.data.network.BeerResponse
 import com.lovys.assignment.domain.localdb.Beer
 
 
-class PunkMapperService : BaseMapperRepository<BeerResponse, Beer> {
+class BeerMapperService : BaseMapperRepository<BeerResponse, Beer> {
 
     override fun transform(type: BeerResponse): Beer =
         Beer(

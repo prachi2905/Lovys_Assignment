@@ -12,12 +12,12 @@ class SharedPreferences(private val context: Context) {
     fun saveCurrentBeerData(beer: Beer) {
         preferences = context.getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
         val preferenceEditor = preferences?.edit()
-        preferenceEditor?.putString("beerName", beer.name)
-        preferenceEditor?.putString("beerTagline", beer.tagline)
-        preferenceEditor?.putString("beerDescription", beer.description)
-        preferenceEditor?.putFloat("beerABV", beer.abv)
-        preferenceEditor?.putFloat("beerIBU", beer.ibu)
-        preferenceEditor?.putString("beerImage", beer.imageURL)
+        preferenceEditor?.putString(AppConstant.BEER_NAME, beer.name)
+        preferenceEditor?.putString(AppConstant.BEER_TAGLINE, beer.tagline)
+        preferenceEditor?.putString(AppConstant.BEER_DISCRIPTION, beer.description)
+        preferenceEditor?.putFloat(AppConstant.BEER_ABV, beer.abv)
+        preferenceEditor?.putFloat(AppConstant.BEER_IBU, beer.ibu)
+        preferenceEditor?.putString(AppConstant.BEER_IMAGE, beer.imageURL)
         preferenceEditor?.apply()
     }
 }
