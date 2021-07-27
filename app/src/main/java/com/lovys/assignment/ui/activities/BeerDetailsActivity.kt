@@ -4,10 +4,8 @@ import android.content.SharedPreferences
 import android.os.Bundle
 
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.Glide
 
 import com.lovys.assignment.databinding.ActivityBeerDetailsBinding
-import com.lovys.assignment.ui.utils.AppConstant
 import com.lovys.assignment.ui.utils.AppConstant.Companion.BEER_ABV
 import com.lovys.assignment.ui.utils.AppConstant.Companion.BEER_DISCRIPTION
 import com.lovys.assignment.ui.utils.AppConstant.Companion.BEER_IBU
@@ -42,8 +40,7 @@ class BeerDetailsActivity : AppCompatActivity() {
         binding.beerTagline.text = tagline
 
         val url = preferences.getString(BEER_IMAGE, "").toString()
-        //binding.beerImage.setImageURI(url)
-        Glide.with(this).load(url).centerCrop().into(binding.beerImage)
+         binding.beerImage.setImageURI(url)
 
         val description = preferences.getString(BEER_DISCRIPTION, "").toString()
         binding.beerDescription.text = description
